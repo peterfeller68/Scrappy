@@ -1,0 +1,37 @@
+{
+  "version": "2.0",
+  "logging": {
+    "logLevel": {
+      "default": "Information",
+      "ScrappyFunctionApp": "Information", // Trace Logs from App
+      "Function": "Warning", // Info logs every function start and end
+      "Microsoft": "Warning",
+      "Azure.Core": "Error",
+      "Host": "Warning", // starting and stopping of job host 
+      "Host.Controllers": "Warning", // starting and stopping of job host 
+      "Host.Results": "Warning" // got rid of many Informational Messages of type "Request"
+    },
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": false,
+        "maxTelemetryItemsPerSecond": 100,
+        "initialSamplingPercentage": 0,
+        "minSamplingPercentage": 0,
+        "maxSamplingPercentage": 0,
+        "excludedTypes": "Trace;Exception",
+        "includedTypes": "Dependency"
+      },
+      "enableLiveMetricsFilters": true,
+      "enableLiveMetrics": false,
+      "enableDependencyTracking": false, // disabled by DependencyProcessor
+      "enablePerformanceCountersCollection": false,
+      "httpAutoCollectionOptions": {
+        "enableHttpTriggerExtendedInfoCollection": false,
+        "enableW3CDistributedTracing": false,
+        "enableResponseHeaderInjection": false
+      }
+    }
+  },
+  "WEBSITE_MAX_DYNAMIC_APPLICATION_SCALE_OUT": 1,
+  "FUNCTIONS_WORKER_PROCESS_COUNT": 1,
+}
